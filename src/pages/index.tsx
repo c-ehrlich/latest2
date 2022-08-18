@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
-  const { data, isLoading } = trpc.useQuery(['example.hello']);
+  const { data } = trpc.useQuery(['example.hello']);
 
   return (
     <>

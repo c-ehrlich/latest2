@@ -1,15 +1,10 @@
-import { createRouter } from "./context";
-import { z } from "zod";
+import { createRouter } from './context';
 
-export const exampleRouter = createRouter().query("hello", {
-  input: z
-    .object({
-      text: z.string().nullish(),
-    })
-    .nullish(),
-  resolve({ input }) {
+export const exampleRouter = createRouter().query('hello', {
+  resolve() {
+    const world = process.env.WORLD ?? '...not found...';
     return {
-      greeting: `Hello ${input?.text ?? "world"}`,
+      greeting: world,
     };
   },
 });
